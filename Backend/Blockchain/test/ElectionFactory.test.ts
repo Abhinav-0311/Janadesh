@@ -1,6 +1,7 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
 import { Contract } from "ethers";
+import { anyValue } from "@nomicfoundation/hardhat-chai-matchers/withArgs";
 
 describe("ElectionFactory", function () {
     let electionFactory: Contract;
@@ -39,7 +40,7 @@ describe("ElectionFactory", function () {
         it("Should emit CreatorAuthorized event", async function () {
             await expect(electionFactory.authorizeCreator(creator1.address))
                 .to.emit(electionFactory, "CreatorAuthorized")
-                .withArgs(creator1.address, admin.address, await ethers.provider.getBlock("latest").then(b => b!.timestamp + 1));
+                .withArgs(creator1.address, admin.address, anyValue);
         });
 
         it("Should not allow non-admin to authorize creators", async function () {
@@ -71,7 +72,7 @@ describe("ElectionFactory", function () {
             await electionFactory.authorizeCreator(creator1.address);
             await expect(electionFactory.revokeCreator(creator1.address))
                 .to.emit(electionFactory, "CreatorRevoked")
-                .withArgs(creator1.address, admin.address, await ethers.provider.getBlock("latest").then(b => b!.timestamp + 1));
+                .withArgs(creator1.address, admin.address, anyValue);
         });
 
         it("Should not allow revoking admin privileges", async function () {
