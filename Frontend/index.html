@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>College Voting DApp</title>
+  <script src="libs/ethers.umd.min.js"></script> <!-- Local ethers.js -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Top Navigation -->
+  <header class="topbar">
+    <div class="brand">🏛️ College Voting</div>
+    <div class="actions">
+      <span id="networkBadge" class="badge hidden">Network</span>
+      <button id="connectBtn" class="btn">Connect Wallet</button>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <main class="main">
+    <!-- Left Column (Profile) -->
+    <section class="col left">
+      <div class="card">
+        <h3 id="welcome">Not connected</h3>
+        <p id="accountInfo">Connect your wallet to continue</p>
+
+        <!-- Profile Form -->
+        <div id="profileForm" class="profileForm hidden">
+          <input id="displayName" placeholder="Enter display name (e.g. Aayush)" />
+          <div class="row">
+            <button id="saveProfileBtn" class="btn small">Save Profile</button>
+            <button id="disconnectBtn" class="btn small ghost">Disconnect</button>
+          </div>
+        </div>
+
+        <!-- Profile View -->
+        <div id="profileView" class="profileView hidden">
+          <p id="greeting"></p>
+          <div class="row">
+            <button id="editProfileBtn" class="btn small">Edit Profile</button>
+            <button id="clearProfileBtn" class="btn small ghost">Clear Profile</button>
+          </div>
+        </div>
+
+        <!-- Status/Message Box -->
+        <div id="messages" class="messages hidden"></div>
+      </div>
+    </section>
+
+    <!-- Right Column (Voting Section) -->
+    <section class="col right">
+      <div class="card">
+        <h3>Election Controls</h3>
+        <div class="row">
+          <label>
+            Election ID:
+            <input id="electionId" type="number" min="1" value="1" />
+          </label>
+          <label>
+            Candidate count:
+            <input id="candidateCount" type="number" min="1" value="0" readonly />
+          </label>
+        </div>
+        <div class="row">
+          <button id="refreshBtn" class="btn small">Refresh Votes</button>
+        </div>
+      </div>
+
+      <!-- Candidate List -->
+      <div class="card">
+        <h3>Candidates</h3>
+        <div id="candidates" class="candidates-grid"></div>
+        <p id="status" class="status"></p>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

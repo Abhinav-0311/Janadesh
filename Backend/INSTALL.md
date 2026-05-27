@@ -8,7 +8,7 @@ Since there are path issues with the automated installation, please follow these
 
 ### 2. Navigate to the Backend directory
 ```bash
-cd "C:\Users\Aayush Tiwari\Desktop\EPICS-Janadesh\Backend"
+cd "Backend"
 ```
 
 ### 3. Install dependencies

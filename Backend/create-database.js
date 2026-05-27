@@ -1,36 +1,38 @@
 const { Client } = require('pg');
+require('dotenv').config();
 
 async function createDatabase() {
-  // First connect to the default 'postgres' database to create our database
+  const databaseName = process.env.DB_NAME || 'voting_platform';
+  const escapedDatabaseName = databaseName.replace(/"/g, '""');
+
   const client = new Client({
-    host: 'localhost',
-    port: 5432,
-    user: 'postgres',
-    password: 'Aayush100106',
-    database: 'postgres' // Connect to default database first
+    host: process.env.DB_HOST || 'localhost',
+    port: Number(process.env.DB_PORT || 5432),
+    user: process.env.DB_USER || 'postgres',
+    password: process.env.DB_PASSWORD || '',
+    database: 'postgres',
   });
 
   try {
     await client.connect();
     console.log('Connected to PostgreSQL server');
 
-    // Check if database exists
     const result = await client.query(
-      "SELECT 1 FROM pg_database WHERE datname = 'voting_platform'"
+      'SELECT 1 FROM pg_database WHERE datname = $1',
+      [databaseName]
     );
 
     if (result.rows.length === 0) {
-      // Create the database
-      await client.query('CREATE DATABASE voting_platform');
-      console.log('✅ Database "voting_platform" created successfully!');
+      await client.query(`CREATE DATABASE "${escapedDatabaseName}"`);
+      console.log(`Database "${databaseName}" created successfully.`);
     } else {
-      console.log('✅ Database "voting_platform" already exists!');
+      console.log(`Database "${databaseName}" already exists.`);
     }
-
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error('Error:', error.message);
+
     if (error.code === '28P01') {
-      console.error('❌ Password authentication failed. Please check your password in .env file');
+      console.error('Password authentication failed. Check DB_USER and DB_PASSWORD in Backend/.env.');
     }
   } finally {
     await client.end();

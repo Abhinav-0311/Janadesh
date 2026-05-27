@@ -1,0 +1,23 @@
+{
+  "network": "localhost",
+  "deployedAt": "2025-09-12T08:59:24.451Z",
+  "deployer": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+  "contracts": [
+    {
+      "contractName": "CollegeVoting",
+      "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      "transactionHash": "0x513a5c444c228c6e05081f70c5b3a619447b80bcbe69cfacdae049e630635525",
+      "blockNumber": 11,
+      "gasUsed": "666221",
+      "deploymentArgs": []
+    }
+  ],
+  "config": {
+    "networkName": "localhost",
+    "createDefaultElection": true,
+    "defaultElectionName": "General Election",
+    "defaultCandidateCount": 2,
+    "verifyContracts": true,
+    "saveDeployment": true
+  }
+}

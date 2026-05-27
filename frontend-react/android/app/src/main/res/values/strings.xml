@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Janadesh</string>
+    <string name="title_activity_main">Janadesh</string>
+    <string name="package_name">com.janadesh.app</string>
+    <string name="custom_url_scheme">com.janadesh.app</string>
+</resources>
