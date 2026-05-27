@@ -86,7 +86,7 @@ jobs:
           cache-dependency-path: Backend/Blockchain/package-lock.json
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Run contract tests
         run: npm run test
