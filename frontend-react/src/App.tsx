@@ -991,7 +991,9 @@ function App() {
         <header className="topbar">
           <div className="topbar-content">
             <div className="brand" onClick={() => setStep('landing')}>
-              <span className="brand-mark">J</span>
+              <span className="brand-mark" aria-hidden="true">
+                <img src="/brand/app-icon-192.png" alt="" />
+              </span>
               <div>
                 <h1>{t.appTitle}</h1>
                 <p>{t.tagline}</p>
@@ -1114,7 +1116,9 @@ function App() {
       <header className="topbar">
         <div className="topbar-content">
           <div className="brand" onClick={() => setStep(isAuthenticated ? 'home' : 'landing')}>
-            <span className="brand-mark">J</span>
+            <span className="brand-mark" aria-hidden="true">
+              <img src="/brand/app-icon-192.png" alt="" />
+            </span>
             <div>
               <h1>{t.appTitle}</h1>
               <p>{t.tagline}</p>

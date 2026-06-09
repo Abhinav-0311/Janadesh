@@ -1,5 +1,7 @@
 # Janadesh
 
+<img src="frontend-react/public/brand/app-icon-192.png" alt="Janadesh logo" width="96" />
+
 Secure college voting platform for web and Android.
 
 Janadesh is a full-stack digital voting system built for controlled institutional elections such as student councils, clubs, departments, and campus committees. It supports OTP-based authentication, election and candidate management, vote submission, persistent storage, and smart-contract validation of core voting rules.
@@ -165,6 +167,8 @@ Recommended before real production use:
 ## CV Summary
 
 Built Janadesh, a full-stack secure college voting platform using React, TypeScript, Node.js, Express, PostgreSQL, Capacitor, and Solidity. Implemented OTP-based authentication, election and candidate management, vote submission, audit-friendly persistence, Android packaging, and smart-contract tests for election lifecycle rules including double-vote prevention and result gating.
+
+See [Docs/PORTFOLIO_BRAND_SUMMARY.md](Docs/PORTFOLIO_BRAND_SUMMARY.md) for reusable portfolio, GitHub, app, and CV descriptions.
 
 ## License
 
